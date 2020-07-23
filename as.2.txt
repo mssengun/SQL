@@ -1,0 +1,32 @@
+SELECT tracks.AlbumId, COUNT(tracks.Name) AS number_of_track
+FROM tracks
+JOIN albums
+ON tracks.AlbumId = albums.AlbumId
+GROUP BY albums.AlbumId
+ORDER BY number_of_track DESC;
+
+SELECT tracks.Name, albums.Title
+FROM tracks
+JOIN albums
+ON tracks.AlbumId = albums.AlbumId;
+
+SELECT tracks.Name, tracks.AlbumId, albums.Title, MIN(tracks.Milliseconds)
+FROM tracks
+JOIN albums
+ON tracks.AlbumId = albums.AlbumId
+GROUP BY tracks.AlbumId
+ORDER BY Milliseconds DESC;
+
+SELECT tracks.Name, tracks.AlbumId, albums.Title, SUM(tracks.Milliseconds)
+FROM tracks
+JOIN albums
+ON tracks.AlbumId = albums.AlbumId
+GROUP BY tracks.AlbumId
+ORDER BY Milliseconds DESC;
+
+SELECT albums.Title, SUM(tracks.Milliseconds) AS total_duration
+FROM tracks
+JOIN albums
+ON tracks.AlbumId = albums.AlbumId
+WHERE Milliseconds > 70000
+GROUP BY albums.Title;
