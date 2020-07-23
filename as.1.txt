@@ -1,0 +1,28 @@
+1. SELECT InvoiceId, CustomerId, total
+FROM invoices
+ORDER by CustomerId ASC, total DESC;
+
+2. SELECT InvoiceId, CustomerId, total
+FROM invoices
+ORDER by total DESC, CustomerId ASC;
+
+3. Firstly, it was ordered according to CustomerId ascending then total descending. In the second query, firstly it was ordered according to total descending then CustomerId ascending.
+
+4. SELECT *
+FROM invoices
+WHERE total >=10
+LIMIT 10;
+
+5. SELECT *
+FROM invoices
+WHERE total < 10
+LIMIT 5;
+
+6. SELECT Name
+FROM tracks
+WHERE Name LIKE 'B%s';
+
+7. SELECT *
+FROM invoices
+WHERE BillingAddress = 'USA' OR 'Germany' OR 'Norway' OR 'Canada' AND InvoiceDate BETWEEN '01-01-2010' AND '01-01-2011' 
+ORDER BY InvoiceDate DESC;
